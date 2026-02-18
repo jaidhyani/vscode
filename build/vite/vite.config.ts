@@ -6,8 +6,6 @@
 import { createLogger, defineConfig, Plugin } from 'vite';
 import path, { join } from 'path';
 import { componentExplorer } from '@vscode/component-explorer-vite-plugin';
-// For local development:
-//import { componentExplorer } from 'D:\\dev\\microsoft\\vscode-packages\\js-component-explorer\\packages\\vite-plugin\\dist\\index';
 import { statSync } from 'fs';
 import { pathToFileURL } from 'url';
 import { rollupEsmUrlPlugin } from '@vscode/rollup-plugin-esm-url';
@@ -178,10 +176,7 @@ export default defineConfig({
 	customLogger: logger,
 	resolve: {
 		alias: {
-			'~@vscode/codicons': '/node_modules/@vscode/codicons',
-			// For local development:
-			// '@vscode/component-explorer/styles.css': 'D:/dev/microsoft/vscode-packages/js-component-explorer/packages/explorer/src/styles.css',
-			// '@vscode/component-explorer': 'D:/dev/microsoft/vscode-packages/js-component-explorer/packages/explorer/src/index.ts',
+			'~@vscode/codicons': join(__dirname, '../../node_modules/@vscode/codicons'),
 		}
 	},
 	esbuild: {
